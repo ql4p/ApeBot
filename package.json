@@ -1,0 +1,18 @@
+{
+  "name": "apebot",
+  "version": "1.0.0",
+  "description": "A discord bot which helps manage OSRS clans.\r Hi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wise-old-man/utils": "^3.3.3",
+    "discord.js": "^14.15.3",
+    "mysql2": "^3.10.3",
+    "sequelize": "^6.37.3"
+  }
+}
