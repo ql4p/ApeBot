@@ -1,44 +1,41 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  class ClanActivityLog extends Model {}
+  class TaskLog extends Model {}
 
-  ClanActivityLog.init(
+  TaskLog.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      userId: {
+      taskTemplateId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users',
+          model: 'TaskTemplates',
           key: 'id',
         },
       },
-      description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      points: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      timestamp: {
+      lastRunTime: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
+      },
+      status: {
+        type: DataTypes.STRING,
+      },
+      message: {
+        type: DataTypes.TEXT,
       },
     },
     {
       sequelize,
-      modelName: 'ClanActivityLog',
-      tableName: 'ClanActivityLogs',
+      modelName: 'TaskLog',
+      tableName: 'TaskLogs',
       timestamps: false,
     }
   );
 
-  return ClanActivityLog;
+  return TaskLog;
 };

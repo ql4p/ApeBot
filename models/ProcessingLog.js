@@ -1,48 +1,43 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  class Account extends Model {}
+  class ProcessingLog extends Model {}
 
-  Account.init(
+  ProcessingLog.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      userId: {
+      requestId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Users',
+          model: 'ProcessingRequests',
           key: 'id',
         },
       },
-      womId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      womUsername: {
+      action: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      isMain: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+      actionBy: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
-      inClan: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+      timestamp: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
       },
     },
     {
       sequelize,
-      modelName: 'Account',
-      tableName: 'Accounts',
-      timestamps: true,
+      modelName: 'ProcessingLog',
+      tableName: 'ProcessingLogs',
+      timestamps: false,
     }
   );
 
-  return Account;
+  return ProcessingLog;
 };

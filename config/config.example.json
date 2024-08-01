@@ -16,6 +16,7 @@
 	"wom": {
 		"apiKey": "YOUR_WOM_API_KEY",
 		"userAgent": "YOUR_WOM_USER_AGENT",
-		"clanpassword" : "YOUR_WOM_CLAN_PASSWORD"
+		"clanpassword" : "YOUR_WOM_CLAN_PASSWORD",
+		"groudId" : "YOUR_GROUP_ID"
 	}
 }

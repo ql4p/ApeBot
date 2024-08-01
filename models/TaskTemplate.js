@@ -1,28 +1,30 @@
 const { Model, DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  class User extends Model {}
+  class TaskTemplate extends Model {}
 
-  User.init(
+  TaskTemplate.init(
     {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      discordId: {
+      taskName: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+      },
+      taskDescription: {
+        type: DataTypes.TEXT,
       },
     },
     {
       sequelize,
-      modelName: 'User',
-      tableName: 'Users',
-      timestamps: true,
+      modelName: 'TaskTemplate',
+      tableName: 'TaskTemplates',
+      timestamps: false,
     }
   );
 
-  return User;
+  return TaskTemplate;
 };
